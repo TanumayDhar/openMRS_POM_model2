@@ -7,7 +7,7 @@ pipeline{
 			stage('SCM checkout')
 			{
 				steps{
-				
+				git clean -fdx
 				git "https://github.com/TanumayDhar/openMRS_POM_model2.git"
 					}
 			}
