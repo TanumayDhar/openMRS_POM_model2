@@ -44,9 +44,15 @@ pipeline{
 					
 				step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
 				
-				//cleanWs()
+				cleanWs()
 					
 				}
+				success 
+				{
+				
+				echo 'This will run only if successful'
+				}
+				
 				
     }
 }
