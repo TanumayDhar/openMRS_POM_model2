@@ -7,7 +7,7 @@ pipeline{
 			stage('SCM checkout')
 			{
 				steps{
-				git clean -fdx
+				
 				git "https://github.com/TanumayDhar/openMRS_POM_model2.git"
 					}
 			}
@@ -44,10 +44,12 @@ pipeline{
 					
 				step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
 				
-				
 				}
 	
-	
-	}
-
+				always 
+				{
+					cleanWs()
+				}
+				
+    }
 }
