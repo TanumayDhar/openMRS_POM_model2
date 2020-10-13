@@ -26,13 +26,20 @@ pipeline{
 				steps
 				{
 				
-				bat 'mvn clean install'
+				bat 'mvn -f pom.xml clean install'
 				
 				}
 			
 			}
 			
-			
+			post {
+				always 
+				{
+					
+				step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+				}
+				
+				}
 			
 			
 			
@@ -40,11 +47,6 @@ pipeline{
 		}
 		
 		
-	
-	
-	
-	
-	
 	
 	
 	
